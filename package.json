@@ -1,0 +1,24 @@
+{
+  "name": "basic_node_survey_app",
+  "version": "1.0.0",
+  "description": "Basic survey app using node.js and express",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rogue0137/basic_node_survey_app.git"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "survey"
+  ],
+  "author": "Krystal Flores",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rogue0137/basic_node_survey_app/issues"
+  },
+  "homepage": "https://github.com/rogue0137/basic_node_survey_app#readme"
+}
