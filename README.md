@@ -14,7 +14,7 @@
 	6.4.1
 	```
 
-	You do not need these exactly, but should node and npm greater than 
+	You do not need these exactly, but should have node and npm greater than 
 
 	```
 	v6.x.x
