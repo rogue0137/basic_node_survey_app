@@ -17,13 +17,13 @@
 - Install dependencies
 
 	`npm install`
-- Run the server (make sure port is 300)
+- Run the server
 
 	`node server.js`
 
 ## Interact with the app
 
-- Open a new terminal. Follow the directionsn below.
+- Open a new terminal. Follow the directions below.
 
 ### Creating a survey
 
@@ -122,6 +122,58 @@ It should return the object that has been deleted.
 
 ## How I would persist data using a database
 
+Since this exercise does not deal with more than one table, I would not use a relational DB like MySQL. Instead, I would use a document based DB. Mongo DB is one of the most commonly used document based DBs. As `mongoose` is one of the most popular node.js MongoDB-based data modeling libraries, I would choose that. MongoDB uses collections instead of tables. Please note that when referencing collection instead of table below.
 
-[](https://github.com/rogue0137/basic_node_survey_app.git/images/kill_a_stark.jpg)
+I would add the following to `server.js` .
+
+```
+const mongoose = require('mongoose');
+
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost/survey', { useNewUrlParser: true })
+  .then(() =>  console.log('connection succesful'))
+  .catch((err) => console.error(err));
+```
+
+ I would then need to create a models folder and a specific model for surveys. 
+ 
+ Inside `models/Surveys.js`, I would include:
+
+```
+const mongoose = require('mongoose');
+
+const SurveySchema = new mongoose.Schema({
+  survey: String,
+  yes: Number,
+  no: Number
+});
+
+module.exports = mongoose.model('Survey', SurveySchema);
+``` 
+
+I would not include `id` or `_id` as a field in the schema because Mongoose creates one by default if not automatically passed it in the schema.
+
+After successful schema migration, I would update `routes/surveys.js` to use specific functions provided by `mongoose` to perform CRUD operations. 
+
+For instance, _Getting the Results of a Survey_ would look something like the following.
+
+```
+const mongoose = require('mongoose');
+const Survey = require('../models/survey.js');
+
+// Getting results of a survey 
+router.get('/:id', function(req, res, next) {
+  Surveys.findById(req.params.id, function (err, post) {
+    if (err) return next(err);
+    res.json(post);
+  });
+});
+```
+
+
+
+## Humor
+
+
+![](images/kill_a_stark.jpg)
 
