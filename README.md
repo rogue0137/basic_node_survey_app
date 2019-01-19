@@ -3,9 +3,27 @@
 
 ## Run the app
 
+- Ensure you have node and npm installed. 
+
+	`node -v && npm -v`
+
+- Clone the repo.
+
+	`git clone https://github.com/rogue0137/basic_node_survey_app.git`
+
+- CD into the repository's folder
+
+	`cd basic_node_survey_app`
+- Install dependencies
+
+	`npm install`
+- Run the server (make sure port is 300)
+
+	`node server.js`
+
 ## Interact with the app
 
-Open a new terminal. 
+- Open a new terminal. Follow the directionsn below.
 
 ### Creating a survey
 
@@ -22,7 +40,7 @@ curl -X POST \
 }'
 ```
 
-It should return the newly created object:
+It should return the newly created object.
 
 ```
 {
@@ -36,7 +54,7 @@ It should return the newly created object:
 
 ### Taking a Survey 
 
-Copy and paste the following:
+Copy and paste the following.
 
 ```
 curl -X POST \
@@ -48,7 +66,7 @@ curl -X POST \
 	"answer":"no"
 }'
 ```
-It should return the object with an updated survey response:
+It should return the object with an updated survey response.
 ```
 {
     "id": 1,
@@ -59,7 +77,7 @@ It should return the object with an updated survey response:
 ```
 ### Getting results of a survey
 
-Copy and paste the following:
+Copy and paste the following.
 
 ```
 curl -X GET \
@@ -69,7 +87,7 @@ curl -X GET \
   -H 'cache-control: no-cache'
   ```
 
-It should return the results of the object specified:
+It should return the results of the object specified.
 
 ```
 {
@@ -82,7 +100,7 @@ It should return the results of the object specified:
 
 ### Delete a Survey
 
-Copy and paste the following:
+Copy and paste the following.
 
 ```
 curl -X DELETE \
@@ -92,7 +110,7 @@ curl -X DELETE \
   -H 'cache-control: no-cache'
   ```
 
-It should return the object that has been deleted:
+It should return the object that has been deleted.
 ```
 {
     "id": 1,
@@ -101,3 +119,9 @@ It should return the object that has been deleted:
     "no": 1
 }
 ```
+
+## How I would persist data using a database
+
+
+[](https://github.com/rogue0137/basic_node_survey_app.git/images/kill_a_stark.jpg)
+
